@@ -8,6 +8,7 @@ class Api::V1::GroupsController < ApplicationController
 
     def show
         @group = Group.find(params[:id])
+        render json: @group
     end 
 
     def create

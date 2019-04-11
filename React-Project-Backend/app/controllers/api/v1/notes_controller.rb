@@ -8,6 +8,7 @@ class Api::V1::NotesController < ApplicationController
 
     def show
         @note = Note.find(params[:id])
+        render json: @note
     end 
 
     def create

@@ -1,5 +1,5 @@
 class Api::V1::NotebooksController < ApplicationController
-    before_action :find_notebook, only: [:update]
+    before_action :find_notebook, only: [:show, :update]
 
     def index
       @notebooks = Notebook.all
@@ -8,6 +8,7 @@ class Api::V1::NotebooksController < ApplicationController
 
     def show
         @notebook = Notebook.find(params[:id])
+        render json: @notebook
     end 
 
     def create
@@ -36,7 +37,7 @@ class Api::V1::NotebooksController < ApplicationController
     private
    
     def notebook_params
-      params.permit(:group_id, :title, :description)
+      params.permit(:id, :group_id, :title, :description)
     end
    
     def find_notebook
