@@ -21,11 +21,15 @@ ActiveRecord::Schema.define(version: 2019_04_11_001307) do
   end
 
   create_table "notebooks", force: :cascade do |t|
+    t.integer "group_id"
+    t.string "title"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "notes", force: :cascade do |t|
+    t.integer "notebook_id"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false

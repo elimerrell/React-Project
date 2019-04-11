@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # resources :notebooks
   namespace :api do
     namespace :v1 do
-      resources :notes, only: [:index, :update]
+      resources :notebooks do 
+        resources :notes
+      end
     end
   end
 end
