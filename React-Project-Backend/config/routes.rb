@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
-  namespace :api do 
-    namespace :v1 do 
-      resources :groups
+  devise_for :users, :controllers => {:registrations => "registrations"}
+    #change the route from /users/login to /login route
+    devise_scope :user do 
+      get 'login', to: 'devise/sessions#new'
     end 
-  end 
-
-  namespace :api do
-    namespace :v1 do
+    devise_scope :user do 
+      get 'signup', to: 'devise/registrations#new'
+    end 
+    
+      resources :users do 
+        get '/notes', to: 'notes#user_notes'
+      end 
+      resources :groups
       resources :notebooks do 
         resources :notes
       end
     end
-  end
-end
+

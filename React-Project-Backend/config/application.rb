@@ -33,3 +33,6 @@ module ReactProjectBackend
     config.api_only = true
   end
 end
+
+config.middleware.insert_after(ActiveRecord::QueryCache, ActionDispatch::Cookies)
+config.middleware.insert_after(ActionDispatch::Cookies, ActionDispatch::Session::CookieStore)

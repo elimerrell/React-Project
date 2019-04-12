@@ -1,4 +1,4 @@
-class Api::V1::GroupsController < ApplicationController
+class GroupsController < ApplicationController
     before_action :find_group, only: [:update]
 
     def index

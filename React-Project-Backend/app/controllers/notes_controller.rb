@@ -1,4 +1,4 @@
-class Api::V1::NotesController < ApplicationController
+class NotesController < ApplicationController
     before_action :find_note, only: [:update]
 
     def index
@@ -9,6 +9,11 @@ class Api::V1::NotesController < ApplicationController
     def show
         @note = Note.find(params[:id])
         render json: @note
+    end
+
+    def user_notes
+      @notes = Note.where(user_id: note_params[:user_id])
+      render json: @notes
     end 
 
     def create
@@ -31,13 +36,13 @@ class Api::V1::NotesController < ApplicationController
 
     def destroy
         @note = Note.find(params[:id])
-        @note.destory 
+        @note.destroy
     end 
    
     private
    
     def note_params
-      params.permit(:notebook_id, :title, :content)
+      params.permit(:user_id,:notebook_id, :title, :content)
     end
    
     def find_note

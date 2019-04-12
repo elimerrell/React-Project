@@ -1,4 +1,4 @@
-class Api::V1::NotebooksController < ApplicationController
+class NotebooksController < ApplicationController
     before_action :find_notebook, only: [:show, :update]
 
     def index
