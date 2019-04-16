@@ -31,7 +31,8 @@ puts Notebook.first
     Note.create(
         notebook_id: rand(1..10),
         title: Faker::Marketing.buzzwords,
-        content: Faker::Hipster.sentence
+        content: Faker::Hipster.sentence,
+        color: "#ffffa5"
     )
 end 
 puts Note.first

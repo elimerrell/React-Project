@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_001307) do
     t.integer "notebook_id"
     t.string "title"
     t.text "content"
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

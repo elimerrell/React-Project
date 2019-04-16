@@ -31,13 +31,13 @@ class Api::V1::NotesController < ApplicationController
 
     def destroy
         @note = Note.find(params[:id])
-        @note.destory 
+        @note.destroy 
     end 
    
     private
    
     def note_params
-      params.permit(:notebook_id, :title, :content)
+      params.permit(:notebook_id, :title, :content, :color)
     end
    
     def find_note
