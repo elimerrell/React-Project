@@ -2,7 +2,7 @@ class Api::V1::GroupsController < ApplicationController
     before_action :find_group, only: [:update]
 
     def index
-      @groups = Group.all
+      @groups = Group.where(notebook_id: note_params[:notebook_id])
       render json: @groups
     end
 
@@ -37,7 +37,7 @@ class Api::V1::GroupsController < ApplicationController
     private
    
     def group_params
-      params.permit(:name)
+      params.permit(:name :id)
     end
    
     def find_group

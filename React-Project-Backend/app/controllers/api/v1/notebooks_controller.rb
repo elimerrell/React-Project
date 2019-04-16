@@ -2,7 +2,7 @@ class Api::V1::NotebooksController < ApplicationController
     before_action :find_notebook, only: [:show, :update]
 
     def index
-      @notebooks = Notebook.all
+      @notebooks = Notebook.where(group_id: notebook_params[:group_id])
       render json: @notebooks
     end
 
