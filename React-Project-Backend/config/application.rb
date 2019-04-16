@@ -19,6 +19,8 @@ Bundler.require(*Rails.groups)
 
 module ReactProjectBackend
   class Application < Rails::Application
+    # Autoload all files in app/lib
+    config.autoload_paths << Rails.root.join('lib')
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
