@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  skip_before_action :authenticate_request, only: [:create]
   before_action :find_user, only: [:update]
 
   def index
@@ -31,13 +32,13 @@ class Api::V1::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destory 
+    @user.destroy 
   end 
  
   private
  
   def user_params
-    params.permit(:userbook_id, :title, :content)
+    params.permit(:name, :email, :password)
   end
  
   def find_user
