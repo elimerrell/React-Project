@@ -37,7 +37,7 @@ class Api::V1::NotebooksController < ApplicationController
     private
    
     def notebook_params
-      params.permit(:id, :group_id, :title, :description)
+      params.permit(:id, :user_id, :title, :category, :description)
     end
    
     def find_notebook
