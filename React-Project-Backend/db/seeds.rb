@@ -24,6 +24,7 @@ puts User.first.to_json
         description: Faker::Hipster.sentence
     )
 end 
+puts '\nFirst Notebook:'
 puts Notebook.first.to_json
 
 
@@ -35,4 +36,5 @@ puts Notebook.first.to_json
         color: "#FFFFA5"
     )
 end 
+puts '\nFirst Note:'
 puts Note.first.to_json
