@@ -22,7 +22,8 @@ ActiveRecord::Schema.define(version: 2019_04_11_001307) do
   end
 
   create_table "notebooks", force: :cascade do |t|
-    t.integer "group_id"
+    t.integer "user_id"
+    t.string "category"
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false

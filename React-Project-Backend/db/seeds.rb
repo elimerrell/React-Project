@@ -11,6 +11,7 @@ Note.destroy_all
 10.times do
     Notebook.create(
         user_id: 1,
+        category: "school",
         title: Faker::Marketing.buzzwords,
         description: Faker::Hipster.sentence
     )

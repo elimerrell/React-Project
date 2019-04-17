@@ -5,7 +5,8 @@ Rails.application.routes.draw do
       resources :users do 
         resources :notebooks do 
           resources :notes
+        end
       end
     end
   end
-end
+end 
