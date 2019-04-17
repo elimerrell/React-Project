@@ -7,16 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Notebook.destroy_all
 Note.destroy_all
+User.destroy_all
+
+User.create(
+    name: 'Mario',
+    email: 'itsame@mar.io',
+    password: '1234'
+)
+puts User.first.to_json
 
 10.times do
     Notebook.create(
-        user_id: 1,
+        user_id: User.first.id,
         category: "school",
         title: Faker::Marketing.buzzwords,
         description: Faker::Hipster.sentence
     )
 end 
-puts Notebook.first
+puts 'First Notebook:'
+puts Notebook.first.to_json
 
 
 100.times do
@@ -24,7 +33,8 @@ puts Notebook.first
         notebook_id: rand(1..10),
         title: Faker::Marketing.buzzwords,
         content: Faker::Hipster.sentence,
-        color: "#ffffa5"
+        color: "#FFFFA5"
     )
 end 
-puts Note.first
+puts 'First Note:'
+puts Note.first.to_json
