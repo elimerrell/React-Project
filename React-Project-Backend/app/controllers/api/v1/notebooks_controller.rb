@@ -31,7 +31,7 @@ class Api::V1::NotebooksController < ApplicationController
 
     def destroy
         @notebook = Notebook.find(params[:id])
-        @notebook.destory 
+        @notebook.destroy 
     end 
    
     private
